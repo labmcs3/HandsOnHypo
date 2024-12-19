@@ -12,3 +12,17 @@ from sklearn.model_selection       import train_test_split
 df = pd.read_csv("HiggsSignificance.csv.zip")
 print(df.head())
 
+#Carico il modello
+model = joblib.load("MLP_weights.pkl")
+
+Test = df.drop(columns=['Weight','PRI_tau_phi','PRI_lep_phi','PRI_met_phi','Label'])
+
+vscore = model.predict_proba(Test)[:,1]
+weight = df['Weight']
+label  = df['Label']
+
+#Calcolare il numero di eventi (somma dei pesi) che passano il taglio per il campione di segnale e di fondo
+cut = 0.5
+
+#Challenge: trovare il valore di cut che massimizza S/sqrt(B)
+#A che valore di efficienza corrisponde ?
