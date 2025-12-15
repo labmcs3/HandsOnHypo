@@ -19,7 +19,7 @@ print(df.head())
 # Divido in campione di training e test con l'aiuto di train_test_split
 # Nella divisione train/test partire da una frazine di train piccola (per testare) per poi aumentarla
 
-# Eventualmente scalo a norm(0,1)
+# Eventualmente scalo a norm(0,1) usando lo scaler
 
 #Training di MLP, LD, NaiveBayes
 listmodel = []
